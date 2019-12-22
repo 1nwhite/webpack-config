@@ -2,4 +2,8 @@
 
 import '../sass/main.sass';
 
-console.log("gffgdf");
+const x = (x, y) => { return x * y };
+
+console.log(x(2, 2));
+
+

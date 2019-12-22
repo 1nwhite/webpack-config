@@ -18,6 +18,16 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            },
+            {
                 test: /\.(css|sass|scss)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -42,8 +52,16 @@ module.exports = {
                         options: {
                             sourceMap: true
                         }
-                    }
+                    },
                 ]
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'images',
+                },
             },
         ]
     },
